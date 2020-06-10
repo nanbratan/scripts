@@ -1,9 +1,12 @@
+#!/usr/bin/env python3
+
 import sys
 import os
 
 from datetime import datetime
 
 tracking_dir = '/home/igor/tracking'
+
 
 def get_current_date():
     current_day = datetime.now().day
