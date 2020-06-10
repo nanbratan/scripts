@@ -5,7 +5,8 @@ import os
 
 from datetime import datetime
 
-tracking_dir = '/home/igor/tracking'
+HOME = os.environ['HOME']
+tracking_dir = f'{HOME}/tracking'
 
 
 def get_current_date():
