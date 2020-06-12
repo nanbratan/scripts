@@ -12,6 +12,7 @@ backup_path = '/backup'
 options = '-aAXv'
 as_root = 'pkexec'
 rsync_cmd = 'rsync'
+exclude_dirs = f'--exclude-from={pwd}/exclude_dirs.txt'
 
 
 def get_snap_path():
@@ -42,7 +43,7 @@ def make_backup():
         as_root,
         rsync_cmd,
         options,
-        f"--exclude-from={pwd}/exclude_dirs.txt",
+        exclude_dirs,
         root_path,
         snap_path,
     ])
