@@ -6,7 +6,7 @@ import os
 from datetime import datetime
 
 HOME = os.environ['HOME']
-tracking_dir = f'{HOME}/tracking'
+notes_dir = f'{HOME}/notes'
 
 
 def get_current_date():
@@ -32,24 +32,24 @@ def get_current_time():
     return f'{current_hour}:{current_minutes}'
 
 
-def track_current_task():
+def make_note():
     text_exists = len(sys.argv) > 1
 
     if not text_exists:
-        print("Attention! Write text for tracking!")
+        print("Attention! Write text for note!")
         return
 
     text = sys.argv[1]
     current_date = get_current_date()
     current_time = get_current_time()
 
-    if not os.path.exists(tracking_dir):
-        os.mkdir(tracking_dir)
+    if not os.path.exists(notes_dir):
+        os.mkdir(notes_dir)
 
-    file = open(f'{tracking_dir}/{current_date}', 'a+')
+    file = open(f'{notes_dir}/{current_date}', 'a+')
 
     file.write(f'[{current_time}] - {text}\n')
 
 
-track_current_task()
+make_note()
 
